@@ -1,4 +1,4 @@
-package se.dl.java;
+package se.dl.java.lambda;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static java.util.Comparator.*;
@@ -72,12 +73,19 @@ public class LambdaExpressionsTest {
         isVegeterianPredicate.and(isHighCalorieDish);
 
         // För Functions
-        // andThen
+        // andThen då man lägger ihop functions på varandra.
         // compose
+        Function<Integer, Integer> f = x -> x + 1;
+        Function<Integer, Integer> g = x -> x + 2;
+        Function<Integer, Integer> h = f.andThen(g);
+        int result = h.apply(3);
+        System.out.println(result);
 
-
-
-
-
+        Function<String, String> addingHeader = Dish::addHeader;
+        String hello = addingHeader.apply("Hello");
+        System.out.println(hello);
+        Function<String, String> twoFunc = addingHeader.andThen(Dish::addHeader);
+        String helloAgain_ = twoFunc.apply("HelloAgain ");
+        System.out.println(helloAgain_);
     }
 }

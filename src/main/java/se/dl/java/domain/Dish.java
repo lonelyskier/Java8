@@ -15,4 +15,8 @@ public class Dish {
     private Type type;
 
     public enum Type { MEAT, FISH, OTHER }
+
+    public static String addHeader(String text) {
+        return text + " adding header text";
+    }
 }
