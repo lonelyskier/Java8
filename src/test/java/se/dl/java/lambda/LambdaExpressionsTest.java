@@ -4,14 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 import se.dl.java.domain.Dish;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import static java.util.Comparator.*;
+import static java.util.Comparator.comparing;
 
 public class LambdaExpressionsTest {
 
@@ -19,9 +18,11 @@ public class LambdaExpressionsTest {
         Lambda expressions används där Functional Interfaces kan användas.
         Functional Interface -> ett interface med endast en abstract method
 
-
-
-
+        Predicate
+        Consumer
+        Supplier
+        Function
+        Comparator -> jämföra objekt, sortera en lista
      */
 
     private List<Dish> menu;
